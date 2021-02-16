@@ -1,5 +1,5 @@
 {
-  "name" : "Real stock bot",
+  "name" : "Real Stock Bot",
   "description": "Bot",
   "version" : "1.0",
   "main" : "bot.js",
