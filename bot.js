@@ -22,13 +22,13 @@ client.on('message', message => {
     const args = message.content.slice(prefix.length).split(" ");
     const command = args.shift().toLowerCase();
     try {
-        let embed = new Discord().MessageEmbed()
+        let embed = new Discord.MessageEmbed()
         .setColor('green')
         .setTitle('Market Watch Link')
         .setDescription('[' + symbol + '](https://www.marketwatch.com/investing/stock/' + symbol + '?mod=quote_search)');
 
         send(embed);
     } catch (e) {
-        send('Might be wrong. Perhaps wrong symbol?' + e);
+        send('Might be wrong. Perhaps wrong symbol? Exception: ' + e);
     }
 });
