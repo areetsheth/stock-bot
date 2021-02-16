@@ -19,7 +19,7 @@ function send(toSend) {
 
 client.on('message', message => {
     if (!message.content.includes(prefix) || message.author.bot) return;
-    const command = message.content.toString();
+    const command = message.content.toString() + ' ';
     console.log(command);
     let request = command.substring(command.indexOf('$'));
     console.log(request);
