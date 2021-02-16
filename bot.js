@@ -18,14 +18,15 @@ function send(toSend) {
 }
 
 client.on('message', message => {
-    if (!message.content.startsWith(prefix) || message.author.bot) return;
-    const args = message.content.slice(prefix.length).split(" ");
-    const command = args.shift().toLowerCase();
-    let symbol = command;
+    if (!message.content.includes(prefix) || message.author.bot) return;
+    const command = message.content.toString();
+    let request = command.substring(command.indexOf('$'));
+    request = request.substring(0, request.indexOf(' '));
+    let symbol = request.substring(1);
     try {
         let embed = new Discord.MessageEmbed()
         .setColor('green')
-        .setDescription('[' + symbol + '](https://www.marketwatch.com/investing/stock/' + symbol + '?mod=quote_search)');
+        .setDescription('[MarketWatch: ' + symbol.toUpperCase() + '](https://www.marketwatch.com/investing/stock/' + symbol + '?mod=quote_search)');
 
         send(embed);
     } catch (e) {
