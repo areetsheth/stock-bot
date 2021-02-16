@@ -22,8 +22,11 @@ client.on('message', message => {
     const command = message.content.toString();
     console.log(command);
     let request = command.substring(command.indexOf('$'));
+    console.log(request);
     request = request.substring(0, request.indexOf(' '));
+    console.log(request);
     let symbol = request.substring(1);
+    console.log(symbol);
     try {
         let embed = new Discord.MessageEmbed()
         .setColor('green')
