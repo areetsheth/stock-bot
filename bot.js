@@ -29,6 +29,6 @@ client.on('message', message => {
 
         send(embed);
     } catch (e) {
-        send('Might be wrong. Perhaps wrong symbol?');
+        send('Might be wrong. Perhaps wrong symbol?' + e);
     }
 });
