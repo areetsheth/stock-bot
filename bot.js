@@ -25,7 +25,6 @@ client.on('message', message => {
     try {
         let embed = new Discord.MessageEmbed()
         .setColor('green')
-        .setTitle('Market Watch Link')
         .setDescription('[' + symbol + '](https://www.marketwatch.com/investing/stock/' + symbol + '?mod=quote_search)');
 
         send(embed);
