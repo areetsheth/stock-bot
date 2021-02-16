@@ -12,12 +12,13 @@ client.once('ready', () => {
     client.user.setActivity("ticker for link"); 
 });
 
-function send(toSend) {
+function send(toSend, id) {
     let channel = client.channels.cache.get(stockBot);
     channel.send(toSend);
 }
 
 client.on('message', message => {
+    let id = message.channel.id;
     if (!message.content.includes(prefix) || message.author.bot) return;
     const command = message.content.toString() + ' ';
     console.log(command);
@@ -32,8 +33,8 @@ client.on('message', message => {
         .setColor('green')
         .setDescription('[MarketWatch: ' + symbol.toUpperCase() + '](https://www.marketwatch.com/investing/stock/' + symbol + '?mod=quote_search)');
 
-        send(embed);
+        send(embed, id);
     } catch (e) {
-        send('Might be wrong. Perhaps wrong symbol? Exception: ' + e);
+        send('Might be wrong. Perhaps wrong symbol? Exception: ' + e, id);
     }
 });
