@@ -18,7 +18,6 @@ function send(toSend, id) {
 
 client.on('message', message => {
     let id = message.channel.id;
-    console.log(id);
     if (!message.content.includes(prefix) || message.author.bot) return;
     const command = message.content.toString() + ' ';
     let request = command.substring(command.indexOf('$'));
