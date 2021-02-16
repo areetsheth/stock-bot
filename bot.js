@@ -20,6 +20,7 @@ function send(toSend) {
 client.on('message', message => {
     if (!message.content.includes(prefix) || message.author.bot) return;
     const command = message.content.toString();
+    console.log(command);
     let request = command.substring(command.indexOf('$'));
     request = request.substring(0, request.indexOf(' '));
     let symbol = request.substring(1);
