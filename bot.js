@@ -1,6 +1,5 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const stockBot = '762754228464517171';
 const prefix = '$';
 
 // Bot login
@@ -13,7 +12,7 @@ client.once('ready', () => {
 });
 
 function send(toSend, id) {
-    let channel = client.channels.cache.get(stockBot);
+    let channel = client.channels.cache.get(id);
     channel.send(toSend);
 }
 
