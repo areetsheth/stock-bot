@@ -1,11 +1,12 @@
 {
-  "name" : "Real-Stock-Bot",
+  "name": "Real-Stock-Bot",
   "description": "Bot",
-  "version" : "0.0.0",
-  "main" : "bot.js",
-  "scripts" : {
-     "start" : "node bot.js"
+  "version": "0.0.0",
+  "main": "bot.js",
+  "scripts": {
+    "start": "node bot.js"
   },
-  "dependencies" : {
+  "dependencies": {
+    "discord.js": "^12.5.1"
   }
 }
