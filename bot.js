@@ -15,10 +15,10 @@ function send(toSend, id) {
     let channel = client.channels.cache.get(id);
     channel.send(toSend);
 }
-
+ 
 client.on('message', message => {
     let id = message.channel.id;
-    if (!message.content.includes(prefix) || message.author.bot) return;
+    if (!message.content.includes(prefix) || message.author.bot || typeof message.substring(1) === "Number") return;
     const command = message.content.toString() + ' ';
     let request = command.substring(command.indexOf('$'));
     request = request.substring(0, request.indexOf(' '));
