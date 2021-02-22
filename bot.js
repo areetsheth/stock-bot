@@ -18,12 +18,11 @@ function send(toSend, id) {
  
 client.on('message', message => {
     let id = message.channel.id;
-    if (!message.content.includes(prefix) || message.author.bot) return;
+    if (!message.content.includes(prefix) || message.author.bot || hasNumber(message)) return;
     const command = message.content.toString() + ' ';
     let request = command.substring(command.indexOf('$'));
     request = request.substring(0, request.indexOf(' '));
     let symbol = request.substring(1);
-    if (typeof symbol === 'number') return;
     try {
         let embed = new Discord.MessageEmbed()
         .setColor('green')
@@ -34,3 +33,10 @@ client.on('message', message => {
         send('Might be wrong. Perhaps wrong symbol? Exception: ' + e, id);
     }
 });
+
+function hasNumber(string) {
+    for (var i = 0; i < string.length; i++) {
+        if (string.charAt(i) >= '0' && string.charAt(i) <= '9') return true;
+    }
+    return false;
+}
