@@ -18,7 +18,7 @@ function send(toSend, id) {
  
 client.on('message', message => {
     let id = message.channel.id;
-    if (!message.content.includes(prefix) || message.author.bot || hasNumber(message)) return;
+    if (!message.content.includes(prefix) || message.author.bot || hasNumber(message.content)) return;
     const command = message.content.toString() + ' ';
     let request = command.substring(command.indexOf('$'));
     request = request.substring(0, request.indexOf(' '));
